@@ -12,3 +12,14 @@ def index():
     '''
     title = "Pitches"
     return render_template('index.html', title = title)
+
+@main.route('/new/pitch', methods = ['GET','POST'])
+@login_required
+def new_pitch(id):    
+    
+@main.route('/comment/new/<int:id>', methods = ['GET','POST'])
+@login_required
+def new_comment(id):   
+
+ 
+  
