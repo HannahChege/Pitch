@@ -1,7 +1,8 @@
 from flask import Flask
-from flask import render_template
+from flask import render_template,request,redirect,url_for,abort
 from . import main
 from flask_login import login_required
+from ..models import User
 
 
 # Views
@@ -40,6 +41,15 @@ def new_upvote(pitch_id):
 def new_downvote(pitch_id): 
     '''
     View the root page function
+
     '''
+@main.route('/user/<uname>')
+def profile(uname):
+    user = User.query.filter_by(username = uname).first()
+
+    if user is None:
+        abort(404)
+
+    return render_template("profile/profile.html", user = user)    
  
   
