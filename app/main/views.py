@@ -25,6 +25,8 @@ def new_comment(id):
 @login_required
 def new_upvote(id):     
 
- 
+@main.route('/downvote/new/<int:id>', methods = ['GET','POST'])
+@login_required
+def new_downvote(id): 
  
   
