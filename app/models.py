@@ -43,4 +43,14 @@ class Comment(db.Model):
     content= db.Column(db.String(255)) 
 
     def __repr__(self):
-        return f'pitch {self.content}'         
+        return f'pitch {self.content}'  
+
+class Upvote(db.Model):
+    __tablename__ = 'users'
+    pitch_id = db.Column(db.Integer,primary_key = True)
+    user_id = db.Column(db.Integer,db.ForeignKey('user.id'))
+    content= db.Column(db.String(255)) 
+
+    def __repr__(self):
+        return f'pitch {self.content}'  
+             
