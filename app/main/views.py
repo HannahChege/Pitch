@@ -15,18 +15,18 @@ def index():
 
 @main.route('/new/pitch', methods = ['GET','POST'])
 @login_required
-def new_pitch(id):    
+def new_pitch(pitch_id):    
 
-@main.route('/comment/new/<int:id>', methods = ['GET','POST'])
+@main.route('/comment/new/<int:pitch_id>', methods = ['GET','POST'])
 @login_required
-def new_comment(id):   
+def new_comment(pitch_id):   
 
-@main.route('/upvote/new/<int:id>', methods = ['GET','POST'])
+@main.route('/upvote/new/<int:pitch_id>', methods = ['GET','POST'])
 @login_required
-def new_upvote(id):     
+def new_upvote(pitch_id):     
 
-@main.route('/downvote/new/<int:id>', methods = ['GET','POST'])
+@main.route('/downvote/new/<int:pitch_id>', methods = ['GET','POST'])
 @login_required
-def new_downvote(id): 
+def new_downvote(pitch_id): 
  
   
