@@ -3,7 +3,7 @@ from flask import render_template,request,redirect,url_for,abort
 from . import main
 from flask_login import login_required
 from ..models import User
-from .forms import forms,UpdateProfile
+# from .forms import forms,UpdateProfile
 from .. import db,photos
 
 
