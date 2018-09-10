@@ -9,13 +9,12 @@ class User(UserMixin,db.Model):
     id = db.Column(db.Integer,primary_key = True)
     username = db.Column(db.String(255))
     email = db.Column(db.String(255),unique = True,index = True)
-    bio = db.Column(db.String(255))
     profile_pic_path = db.Column(db.String())
     pass_secure = db.Column(db.String(255))
-    pitch = db.relationship('pitch', backref = 'user', lazy = 'dynamic')
+    pitch = db.relationship('Pitch', backref = 'user', lazy = 'dynamic')
     comments = db.relationship('Comment', backref = 'user', lazy = 'dynamic')
-    like = db.relationship('like', backref = 'user', lazy = 'dynamic')
-    dislike = db.relationship('dislike', backref = 'user', lazy = 'dynamic')
+    like = db.relationship('Like', backref = 'user', lazy = 'dynamic')
+    dislike = db.relationship('Dislike', backref = 'user', lazy = 'dynamic')
 
     @property
     def password(self):
@@ -40,8 +39,8 @@ class Pitch(db.Model):
     category= db.Column(db.String(255),unique = True,index = True)
     content= db.Column(db.String(255)) 
     comments = db.relationship('Comment', backref = 'pitch', lazy = 'dynamic')
-    like = db.relationship('like', backref = 'pitch', lazy = 'dynamic')
-    dislike = db.relationship('dislike', backref = 'pitch', lazy = 'dynamic')
+    like = db.relationship('Like', backref = 'pitch', lazy = 'dynamic')
+    dislike = db.relationship('Dislike', backref = 'pitch', lazy = 'dynamic')
 
     def __repr__(self):
         return f'pitch {self.content}'  

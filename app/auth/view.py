@@ -2,7 +2,6 @@ from . import auth
 from flask import render_template,redirect,url_for,flash,request
 from flask_login import login_user,logout_user,login_required
 from ..models import User
-from .forms import RegistrationForm
 from .. import db
 from .forms import LoginForm,RegistrationForm
 from ..email import mail_message
@@ -15,12 +14,7 @@ def login():
         if user is not None and user.verify_password(login_form.password.data):
             login_user(user,login_form.remember.data)
             return redirect(request.args.get('next') or url_for('main.index'))
-            # Updated pitch instance
-            new_pitch = Pitch(pitch_id=pitch.id,pitch_title=title,user=current_user)
-
-            # save pitch method
-            new_review.save_review()
-        return redirect(url_for('.pitch',id = pitch.id ))
+            
 
         flash('Invalid username or Password')
      

@@ -1,9 +1,8 @@
-from flask import Flask
 from flask import render_template,request,redirect,url_for,abort
 from . import main
-from flask_login import login_required
-from ..models import User
-from .forms import forms,UpdateProfile
+from ..models import User,Pitch,Comment,Like,Dislike
+from flask_login import login_required, current_user
+from .forms import PitchForm,UpdateProfile
 from .. import db,photos
 
 
