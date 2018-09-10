@@ -7,6 +7,19 @@ from .. import db,photos
 
 
 # Views
+@main.route('/Pickupline', methods=['GET','POST'])
+@login_required
+def Pickupline():
+   pitch_form=PitchForm()
+   if pitch_form.validate_on_submit():
+
+       Pickupline = Pitch(category=pitch_form.category.data,title = pitch_form.title.data)
+       db.session.add(Pickupline)
+       db.session.commit()
+   Pickupline = Pitch.query.filter_by(category='Pickupline').all()
+   return render_template('Pickupline.html',Pickupline=Pickupline,pitch_form=pitch_form)
+
+
 @main.route('/')
 def index():
     '''
@@ -15,12 +28,24 @@ def index():
     title = "Pitches"
     return render_template('index.html', title = title)
 
-@main.route('/new/pitch', methods = ['GET','POST'])
+@main.route('/pitch/new/<int:id>', methods = ['GET','POST'])
 @login_required
-def new_pitch(pitch_id):
-    '''
-    View the root page function
-    '''    
+def new_pitch(id):
+    form = PitchForm()
+    pitch = get_pitch(id)
+    if form.validate_on_submit():
+        title = form.title.data
+        pitch = form.pitch.data
+
+        # Updated review instance
+        new_pitch = Pitch(pitch_id=pitch.id,pitch_title=title,image_path=movie.poster,movie_review=review,user=current_user)
+
+        # save review method
+        new_pitch.save_pitch()
+        return redirect(url_for('.pitch',id = pitch.id ))
+
+    title = f'{pitch.title} review'
+    return render_template('new_pitch.html',title = title, pitch_form=form, pitch=pitch)
 
 @main.route('/comment/new/<int:pitch_id>', methods = ['GET','POST'])
 @login_required
@@ -64,4 +89,5 @@ def update_pic(uname):
         user.profile_pic_path = path
         db.session.commit()
     return redirect(url_for('main.profile',uname=uname))
+ 
   
