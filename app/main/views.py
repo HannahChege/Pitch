@@ -5,12 +5,12 @@ from flask_login import login_required
 
 
 # Views
-@main.route('/upvote/new/<int:pitch_id>', methods = ['GET','POST'])
-@login_required
-def new_upvote(pitch_id):
-    '''
-    View the root page function
-    '''
+# @main.route('/upvote/new/<int:pitch_id>', methods = ['GET','POST'])
+# @login_required
+# def new_upvote(pitch_id):
+#     '''
+#     View the root page function
+#     '''
 
 @main.route('/')
 def index():
