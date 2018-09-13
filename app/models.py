@@ -15,10 +15,10 @@ class User(UserMixin,db.Model):
     bio = db.Column(db.String(255))
     profile_pic_path = db.Column(db.String())
     pass_secure = db.Column(db.String(255))
-    pitches = db.relationship('Pitch', backref = 'user', lazy = 'dynamic')
-    comments = db.relationship('Comment', backref = 'user', lazy = 'dynamic')
-    like = db.relationship('Like', backref = 'user', lazy = 'dynamic')
-    dislike = db.relationship('Dislike', backref = 'user', lazy = 'dynamic')
+    pitches = db.relationship('Pitch', backref = 'use', lazy = 'dynamic')
+    comments = db.relationship('Comment', backref = 'comment1', lazy = 'dynamic')
+    # like = db.relationship('Like', backref = 'like1', lazy = 'dynamic')
+    # dislike = db.relationship('Dislike', backref = 'dislike1', lazy = 'dynamic')
 
     @property
     def password(self):
@@ -40,11 +40,11 @@ class Pitch(db.Model):
     __tablename__ = 'pitch'
     id = db.Column(db.Integer,primary_key = True)
     user_id = db.Column(db.Integer,db.ForeignKey('users.id'))
-    category= db.Column(db.String(255),unique = True,index = True)
+    category= db.Column(db.String(255),index = True)
     content= db.Column(db.String(255)) 
-    comments = db.relationship('Comment', backref = 'pitch', lazy = 'dynamic')
-    like = db.relationship('Like', backref = 'pitch', lazy = 'dynamic')
-    dislike = db.relationship('Dislike', backref = 'pitch', lazy = 'dynamic')
+    comments = db.relationship('Comment', backref = 'pitch1', lazy = 'dynamic')
+    # like = db.relationship('Like', backref = 'pitch2', lazy = 'dynamic')
+    # dislike = db.relationship('Dislike', backref = 'pitch3', lazy = 'dynamic')
 
     def __repr__(self):
         return f'pitch {self.content}'  
@@ -59,23 +59,23 @@ class Comment(db.Model):
     def __repr__(self):
         return f'Comment :content {self.content}'  
 
-class Like(db.Model):
-    __tablename__ = 'like'
-    id = db.Column(db.Integer,primary_key = True)
-    like = db.Column(db.Integer)
-    pitch_id = db.Column(db.Integer,db.ForeignKey('pitch.id'))
-    user_id = db.Column(db.Integer,db.ForeignKey('users.id'))
-    content= db.Column(db.String(255)) 
+# class Like(db.Model):
+#     __tablename__ = 'like'
+#     id = db.Column(db.Integer,primary_key = True)
+#     like = db.Column(db.Integer)
+#     pitch_id = db.Column(db.Integer,db.ForeignKey('pitch.id'))
+#     user_id = db.Column(db.Integer,db.ForeignKey('users.id'))
+#     content= db.Column(db.String(255)) 
 
-    def __repr__(self):
-        return f'pitch {self.content}' 
-class Dislike(db.Model):
-    __tablename__ = 'dislike'
-    id = db.Column(db.Integer,primary_key = True)
-    dislike = db.Column(db.Integer)
-    pitch_id = db.Column(db.Integer,db.ForeignKey('pitch.id'))
-    user_id = db.Column(db.Integer,db.ForeignKey('users.id'))
-    content= db.Column(db.String(255)) 
+#     def __repr__(self):
+#         return f'pitch {self.content}' 
+# class Dislike(db.Model):
+#     __tablename__ = 'dislike'
+#     id = db.Column(db.Integer,primary_key = True)
+#     dislike = db.Column(db.Integer)
+#     pitch_id = db.Column(db.Integer,db.ForeignKey('pitch.id'))
+#     user_id = db.Column(db.Integer,db.ForeignKey('users.id'))
+#     content= db.Column(db.String(255)) 
 
-    def __repr__(self):
-        return f'pitch {self.content}'           
+#     def __repr__(self):
+#         return f'pitch {self.content}'           
