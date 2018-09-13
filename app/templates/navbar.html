@@ -2,14 +2,6 @@
     <div class="container-fluid">
         <div class="navbar-header">
                 <a class="navbar-brand" href="/" style="font-size:65px; text-align:center; color:black;"> ONE MINUTE PITCH</a>
-                <div class="card"></div>
-                <ul>
-                        <button ><a href={"/">PickUpLInes}</a></button>
-                        <button><a href="/">Interview Pitch</a></button>
-                         <button><a href="/">Product Pitch</a></button>
-                         <button><a href="/">Promotion Pitch</a></button>
-                </ul> 
-            </div>
         </div>
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav navbar-right">
@@ -17,6 +9,7 @@
                 <li>{{current_user.username}}</li>
                 <li style="color:white;padding:50px;">{{current_user.username}}</li>
                 <li><a href="{{url_for('auth.logout')}}">Sign out</a></li>
+                <li><a href="{{url_for('main.new_pitch')}}">PITCH</a></li>
                 {% else %}
                 <li><a href="{{url_for('auth.login')}}">Sign in</a></li>
                 {%endif%}
