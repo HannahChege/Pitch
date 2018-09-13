@@ -2,7 +2,7 @@ from flask_mail import Message
 from manage import app
 from . import mail
 from flask import render_template
-import os
+
 
 def mail_message(subject, sender, recepients, text_body, html_body):
     msg = Message(subject,sender=sender,recipients=recepients)
