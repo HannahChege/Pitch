@@ -25,7 +25,33 @@ def new_pitch():
         db.session.commit()
         return redirect(url_for('main.index'))
      
-    return render_template('pitch.html',formpitch = formpitch)   
+    return render_template('pitch.html',formpitch = formpitch) 
+
+@main.route('/new/pickupline', methods = ['GET','POST'])
+@login_required
+def new_pickupline():
+    formpitch = PitchForm()
+    if formpitch.validate_on_submit():
+        pitch = Pitch(category = formpitch.category.data, content = formpitch.pitch.data)
+        db.session.add(pitch)
+        db.session.commit()
+        return redirect(url_for('main.index'))
+     
+    return render_template('Pickupline.html',formpitch = formpitch)   
+
+@main.route('/new/interview', methods = ['GET','POST'])
+@login_required
+def new_interview():
+    formpitch = PitchForm()
+    if formpitch.validate_on_submit():
+        pitch = Pitch(category = formpitch.category.data, content = formpitch.pitch.data)
+        db.session.add(pitch)
+        db.session.commit()
+        return redirect(url_for('main.index'))
+     
+    return render_template('interview.html',formpitch = formpitch)   
+
+
 
 @main.route('/comment/new/<int:pitch_id>', methods = ['GET','POST'])
 @login_required

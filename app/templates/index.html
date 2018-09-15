@@ -1,13 +1,26 @@
 {%extends 'base.html'%}
 
      {%block content%}
-     <div class="row">
+        <div class="container">
+        
          {%for pitch in pitches%}
+
          <p>
              {{pitch.category}}:{{pitch.content}}
+             
          </p>
+         
+        
          {%endfor%}
+
+         <!-- Styles block -->
+
+    {% block styles%}
+    {{ super() }}
+   <link rel="stylesheet" href="{{url_for('static',filename='css/index.css')}}">
+   {% endblock %}
      </div>
-     <img src="https://hbr.org/resources/images/article_assets/2008/01/03Jun13_Anderson_killer-presentation.png" height="580px" width="1280">
+     
+    
     
     {%endblock%}
