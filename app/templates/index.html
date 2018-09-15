@@ -1,7 +1,7 @@
 {%extends 'base.html'%}
 
      {%block content%}
-        <div class="container">
+        <div class="jumbotron" 'background-color:navyblue';>
         
          {%for pitch in pitches%}
 
@@ -13,12 +13,6 @@
         
          {%endfor%}
 
-         <!-- Styles block -->
-
-    {% block styles%}
-    {{ super() }}
-   <link rel="stylesheet" href="{{url_for('static',filename='css/index.css')}}">
-   {% endblock %}
      </div>
      
     

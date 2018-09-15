@@ -12,13 +12,6 @@
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
                 <li><a href="#">HOME</a></li></ul>
-
-                <button class="btn btn-default"> <a href="/new/pickupline">Pickuplines</a> </button>
-                <button class="btn btn-default"> <a href="/new/pickupline">Interview</a> </button>
-                <button class="btn btn-default"> <a href="/new/pickupline">Technolgy</a> </button>
-                <button class="btn btn-default"> <a href="/new/pickupline">Pickuplines</a> </button>
-               
-            
                 <ul>
                     <li><a href="/category"> </a></li>
                 </ul>
@@ -26,7 +19,7 @@
           <ul class="nav navbar-nav navbar-right">
             {% if current_user.is_authenticated %}
             <li><a href="{{url_for('main.index',uname=current_user.username)}}">Profile</a></li>
-            <li><a href="{{url_for('main.index',uname=current_user.username)}}">Add Pitch</a></li>
+            <button class="btn btn-default"> <a href="/new/pickupline">ADD PITCH</a> </button>
             <li><a href="{{url_for('auth.logout')}}">Sign out</a></li>
             {% else %}
             <li><a href="{{url_for('auth.login')}}">Sign in</a></li>
