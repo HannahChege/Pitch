@@ -1,6 +1,6 @@
 export MAIL_USERNAME='chegehannah45@gmail.com'
 export MAIL_PASSWORD='scarletshevannah'
-export SECRET_KEY = 'scarletshevannah'
-export DATABASE_URL = 'postgresql+psycopg2://:hannah@localhost/pitch'
+export SECRET_KEY='scarletshevannah'
 
 python3.6 manage.py server
+

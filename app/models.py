@@ -7,6 +7,7 @@ from datetime import datetime
 @login_manager.user_loader
 def load_user(id):
         return User.query.get(int(id))
+        
 class User(UserMixin,db.Model):
     __tablename__ = 'users'
     id = db.Column(db.Integer,primary_key = True)
@@ -59,23 +60,3 @@ class Comment(db.Model):
     def __repr__(self):
         return f'Comment :content {self.content}'  
 
-# class Like(db.Model):
-#     __tablename__ = 'like'
-#     id = db.Column(db.Integer,primary_key = True)
-#     like = db.Column(db.Integer)
-#     pitch_id = db.Column(db.Integer,db.ForeignKey('pitch.id'))
-#     user_id = db.Column(db.Integer,db.ForeignKey('users.id'))
-#     content= db.Column(db.String(255)) 
-
-#     def __repr__(self):
-#         return f'pitch {self.content}' 
-# class Dislike(db.Model):
-#     __tablename__ = 'dislike'
-#     id = db.Column(db.Integer,primary_key = True)
-#     dislike = db.Column(db.Integer)
-#     pitch_id = db.Column(db.Integer,db.ForeignKey('pitch.id'))
-#     user_id = db.Column(db.Integer,db.ForeignKey('users.id'))
-#     content= db.Column(db.String(255)) 
-
-#     def __repr__(self):
-#         return f'pitch {self.content}'           

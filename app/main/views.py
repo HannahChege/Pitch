@@ -1,11 +1,10 @@
 from flask import Flask
 from flask import render_template,redirect,url_for
 from . import main
-from flask_login import login_required
+from flask_login import login_required,current_user
 from .forms import PitchForm
 from .. models import User,Pitch,Comment
 from ..import db
-
 
 @main.route('/')
 def index():
@@ -37,18 +36,5 @@ def new_comment(pitch_id):
     pass
 
 
-# @main.route('/upvote/new/<int:pitch_id>', methods = ['GET','POST'])
-# @login_required
-# def new_upvote(pitch_id):
-#     '''
-#     View the root page function
-#     '''     
 
-# @main.route('/downvote/new/<int:pitch_id>', methods = ['GET','POST'])
-# @login_required
-# def new_downvote(pitch_id): 
-#     '''
-#     View the root page function
-#     '''
- 
   
