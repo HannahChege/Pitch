@@ -2,6 +2,7 @@ export MAIL_USERNAME='chegehannah45@gmail.com'
 export MAIL_PASSWORD='scarletshevannah'
 export SECRET_KEY='scarletshevannah'
 
-export DATABASE_URL='postgres://ikcplofhhfvumt:1e352daf42f5ba49eb4d16650762f1635c705c145ccd86e8039c4bb9f08d999a@ec2-107-21-233-72.compute-1.amazonaws.com:5432/d8amqr2k75rkak'
+export DATABASE_URL='postgres://dlwcetpbvpgkem:ee053f3c9d529ea9c067951255c096cea8206d13e5d47dda86cfc32053c86b17@ec2-54-83-27-165.compute-1.amazonaws.com:5432/d4iicg4od2p7ts'
+
 python3.6 manage.py server
 
