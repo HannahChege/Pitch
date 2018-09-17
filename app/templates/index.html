@@ -1,7 +1,9 @@
 {%extends 'base.html'%}
 
      {%block content%}
-        <div class="jumbotron" 'background-color:navyblue';>
+     <div class="container" style:background-color:'maroon';>
+         <div class="col-md-4">
+        <div class="card"  text-align:'center'style:'background-color:navyblue';>
         
          {%for pitch in pitches%}
 
@@ -14,7 +16,7 @@
          {%endfor%}
 
      </div>
-     
-    
+    </div>
+    </div>
     
     {%endblock%}
